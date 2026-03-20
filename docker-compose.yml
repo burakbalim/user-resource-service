@@ -1,6 +1,8 @@
 services:
   user-resource-service:
     build: .
+    expose:
+      - "80"
     restart: always
     environment:
       JAVA_OPTS: ${JAVA_OPTS:--Xms256m -Xmx512m}
