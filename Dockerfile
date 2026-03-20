@@ -3,7 +3,9 @@ WORKDIR /app/
 
 COPY pom.xml .
 COPY src src
-RUN mvn install -DskipTests
+
+RUN --mount=type=secret,id=MAVEN_SETTINGS_XML,dst=/root/.m2/settings.xml \
+    mvn install -DskipTests
 
 FROM amazoncorretto:21.0.0 AS RUNTIME
 
