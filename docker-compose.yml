@@ -35,8 +35,12 @@ services:
         max-size: "50m"
         max-file: "5"
     networks:
+      - app-network
       - coolify
 
 networks:
+  app-network:
+    name: ${APP_NETWORK:-staging-network}
+    external: true
   coolify:
     external: true
