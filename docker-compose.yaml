@@ -37,7 +37,6 @@ services:
         max-size: "50m"
         max-file: "5"
     networks:
-      - app-network
       - coolify
 
 networks:
